@@ -17,7 +17,7 @@ namespace WooferGame.Meta.LevelEditor.Systems
         internal static Rectangle GetSelectionBounds(Entity entity)
         {
             if (entity == null) return Rectangle.Empty;
-            Spatial sp = entity.Components.Get<Spatial>();
+            Transform sp = entity.Components.Get<Transform>();
             Rectangle realBounds = Rectangle.Empty;
             if (entity.Components.Has<SoftBody>())
             {

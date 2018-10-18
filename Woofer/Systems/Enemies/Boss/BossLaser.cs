@@ -18,7 +18,7 @@ namespace WooferGame.Systems.Enemies.Boss
     {
         public BossLaser(Vector2D pos, bool big)
         {
-            Components.Add(new Spatial(pos));
+            Components.Get<Transform>().Position = pos;
             Components.Add(new Physical() { GravityMultiplier = 0 });
             Components.Add(new SoftBody(new CollisionBox(big ? -22 : -11, big ? -212 : -180, big ? 44 : 22, big ? 212 : 180), 1f) { Movable = false });
             Components.Add(new LevelRenderable(1));

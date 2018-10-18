@@ -17,7 +17,7 @@ namespace WooferGame.Scenes.LevelObjects
 
         public Ramp(Vector2D from, Vector2D to, double friction, Vector2D spriteOffset)
         {
-            this.Components.Add(new Spatial(from));
+            Components.Get<Transform>().Position = from;
             this.Components.Add(new Physical() { GravityMultiplier = 0 });
             this.Components.Add(new RigidBody(CreateCollisionBoxesForSlope(from-from, to-from, friction).ToArray()));
 

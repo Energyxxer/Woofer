@@ -71,7 +71,7 @@ namespace WooferGame.Systems.HealthSystems
                 if (!health.Owner.Active) continue;
                 if (!health.DoShowHealth) continue;
                 if (!health.HealthBarVisible) continue;
-                Spatial sp = health.Owner.Components.Get<Spatial>();
+                Transform sp = health.Owner.Components.Get<Transform>();
 
                 int width = 50;
                 int height = 5;
@@ -95,7 +95,7 @@ namespace WooferGame.Systems.HealthSystems
                     health.HealthBarVisible = true;
                     health.InvincibilityTimer = health.InvincibilityFrames;
                     health.RegenCooldown = health.RegenRate;
-                    if(de.Sender.Owner.Components.Get<Spatial>() is Spatial origin && health.Owner.Components.Get<Spatial>() is Spatial target && health.Owner.Components.Get<Physical>() is Physical phys)
+                    if(de.Sender.Owner.Components.Get<Transform>() is Transform origin && health.Owner.Components.Get<Transform>() is Transform target && health.Owner.Components.Get<Physical>() is Physical phys)
                     {
                         phys.Velocity = new Vector2D(96 * Math.Sign(target.Position.X - origin.Position.X), 96) * de.Knockback;
                     }

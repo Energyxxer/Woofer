@@ -15,7 +15,7 @@ namespace WooferGame.Systems.Puzzles
     {
         public Switch(Vector2D pos, Rectangle bounds)
         {
-            this.Components.Add(new Spatial(pos));
+            Components.Get<Transform>().Position = pos;
             this.Components.Add(new Physical() { GravityMultiplier = 0 });
             this.Components.Add(new SoftBody(new CollisionBox(bounds), 0) { Movable = false  });
             this.Components.Add(new Renderable(new Sprite("switch", bounds)));

@@ -27,5 +27,10 @@ namespace WooferGame.Systems
         {
             this.Position = position;
         }
+
+        public override void Initialize() {
+            Owner.GetComponent<Transform>().Position = Position;
+            Owner.Components.Remove<Spatial>();
+        }
     }
 }

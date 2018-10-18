@@ -29,7 +29,7 @@ namespace WooferGame.Systems.Interaction
                 Interactable interactable = interaction.Key;
                 InteractingAgent currentAgent = interaction.Value;
 
-                if(!interactable.Owner.Active || !currentAgent.Owner.Active || (currentAgent.Owner.Components.Get<Spatial>().Position - interactable.Owner.Components.Get<Spatial>().Position).Magnitude > currentAgent.MaxDistance)
+                if(!interactable.Owner.Active || !currentAgent.Owner.Active || (currentAgent.Owner.Components.Get<Transform>().Position - interactable.Owner.Components.Get<Transform>().Position).Magnitude > currentAgent.MaxDistance)
                 {
                     toRemove.Add(interactable);
                     interactable.InRange = false;
@@ -56,7 +56,7 @@ namespace WooferGame.Systems.Interaction
                     bool inRange = false;
                     foreach(InteractingAgent agent in agents)
                     {
-                        if ((agent.Owner.Components.Get<Spatial>().Position - interactable.Owner.Components.Get<Spatial>().Position).Magnitude <= agent.MaxDistance)
+                        if ((agent.Owner.Components.Get<Transform>().Position - interactable.Owner.Components.Get<Transform>().Position).Magnitude <= agent.MaxDistance)
                         {
                             currentAgent = agent;
                             inRange = true;

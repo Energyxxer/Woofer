@@ -44,6 +44,11 @@ namespace EntityComponentSystem.Entities
         /// If an entity is inactive, it usually means it exists but doesn't interact with the world
         /// </summary>
         public bool Active { get; set; } = true;
+        /// <summary>
+        /// The group entity this entity belongs to.
+        /// Zero if this is a top-level entity.
+        /// </summary>
+        public Entity ParentEntity { get; set; } = null;
 
         /// <summary>
         /// Creates an entity
@@ -51,6 +56,7 @@ namespace EntityComponentSystem.Entities
         public Entity()
         {
             this.Components = new ComponentMap(this);
+            Components.Add(new Transform());
             this.Name = this.GetType().Name;
         }
 

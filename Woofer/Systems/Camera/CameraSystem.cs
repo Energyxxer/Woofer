@@ -29,7 +29,7 @@ namespace WooferGame.Systems.Camera
         {
             if (e is CameraLocationQueryEvent qe && WatchedComponents.Count > 0)
             {
-                qe.SuggestedLocation = WatchedComponents.First().Owner.Components.Get<Spatial>().Position +
+                qe.SuggestedLocation = WatchedComponents.First().Owner.Components.Get<Transform>().Position +
                     (WatchedComponents.First() as CameraTracked).Offset;
             }
         }

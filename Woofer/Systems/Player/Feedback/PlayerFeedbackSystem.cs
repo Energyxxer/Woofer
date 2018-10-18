@@ -23,7 +23,7 @@ namespace WooferGame.Systems.Player.Feedback
             {
                 PlayerComponent player = WatchedComponents.FirstOrDefault() as PlayerComponent;
                 if (player == null) return;
-                double distance = (pe.Source - player.Owner.Components.Get<Spatial>().Position).Magnitude;
+                double distance = (pe.Source - player.Owner.Components.Get<Transform>().Position).Magnitude;
                 if (distance < 0.1) distance = 0.1;
                 if (distance > 64 && pe.Sender.Owner != player.Owner) return;
 

@@ -18,7 +18,7 @@ namespace WooferGame.Systems.Pulse
     {
         public PulseEmitter(Vector2D pos, Vector2D direction, double strength, double reach, bool solid = true)
         {
-            this.Components.Add(new Spatial(pos));
+            Components.Get<Transform>().Position = pos;
             if (solid)
             {
                 this.Components.Add(new Physical() { GravityMultiplier = 0 });

@@ -280,7 +280,6 @@
     <Compile Include="Systems\Visual\Particles\SoundParticle.cs" />
     <Compile Include="Systems\Visual\Renderable.cs" />
     <Compile Include="Systems\Visual\Sprite.cs" />
-    <Compile Include="TestData\Box.cs" />
     <Compile Include="Systems\Movement\PlayerMovementComponent.cs" />
     <Compile Include="TestData\TestScene.cs" />
   </ItemGroup>

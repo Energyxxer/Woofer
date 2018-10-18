@@ -19,7 +19,7 @@ namespace WooferGame.Scenes.LevelObjects
     {
         public WooferGiver(Vector2D pos)
         {
-            this.Components.Add(new Spatial(pos));
+            Components.Get<Transform>().Position = pos;
             this.Components.Add(new Physical() { GravityMultiplier = 0 });
             this.Components.Add(new SoftBody(new CollisionBox(-4, -4, 8, 8), 0f));
             this.Components.Add(new Renderable(

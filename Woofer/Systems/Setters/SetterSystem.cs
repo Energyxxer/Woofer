@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using EntityComponentSystem.Components;
 using EntityComponentSystem.ComponentSystems;
 using EntityComponentSystem.Entities;
 using EntityComponentSystem.Events;
@@ -25,7 +26,7 @@ namespace WooferGame.Systems.Setters
                     if (posSet.ChangedId == 0) toAffect = ae.Affected;
                     else toAffect = Owner.Entities[posSet.ChangedId];
 
-                    if (toAffect != null && toAffect.Components.Get<Spatial>() is Spatial sp)
+                    if (toAffect != null && toAffect.Components.Get<Transform>() is Transform sp)
                     {
                         if (posSet.Add) sp.Position += posSet.Amount;
                         else sp.Position = posSet.Amount;

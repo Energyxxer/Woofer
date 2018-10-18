@@ -22,7 +22,7 @@ namespace WooferGame.Systems.Player
         public PlayerEntity(double x, double y)
         {
             //Physics
-            Components.Add(new Spatial(x, y));
+            GetComponent<Transform>().Position = new Vector2D(x, y);
             Components.Add(new Physical());
             Components.Add(new SoftBody(new CollisionBox(-6, 0, 12, 16), 8f));
             Components.Add(new PulsePushable());

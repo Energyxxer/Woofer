@@ -32,10 +32,10 @@ namespace WooferGame.Systems.Enemies.Boss
             foreach(Boss boss in WatchedComponents.OfType<Boss>())
             {
                 if (boss.Health <= 0) continue;
-                Spatial sp = boss.Owner.GetComponent<Spatial>();
+                Transform sp = boss.Owner.GetComponent<Transform>();
                 Physical phys = boss.Owner.GetComponent<Physical>();
 
-                Spatial playerSp = player?.GetComponent<Spatial>();
+                Transform playerSp = player?.GetComponent<Transform>();
                 if (sp == null || phys == null) continue;
 
                 phys.GravityMultiplier = 1;

@@ -50,6 +50,8 @@ namespace EntityComponentSystem.Components
             }
         }
 
+        public virtual void Initialize() { }
+
         /// <summary>
         /// Retrieves the identifier of the given component type
         /// </summary>

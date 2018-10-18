@@ -37,13 +37,13 @@ namespace WooferGame.Systems.Puzzles
 
                     if (delta == 0 || door.CurrentOpenTime > door.OpeningTime)
                     {
-                        Spatial sp = door.Owner.GetComponent<Spatial>();
+                        Transform sp = door.Owner.GetComponent<Transform>();
                         if (door.OpeningDirection > 0)
                         {
                             door.CurrentOpenDistance = door.MaxOpenDistance;
                             if (sp != null)
                             {
-                                sp.Position.Y = door.OpenY;
+                                sp.RelativePosition.Y = door.OpenY;
                             }
                         } else if(door.OpeningDirection < 0)
                         {
@@ -51,14 +51,14 @@ namespace WooferGame.Systems.Puzzles
 
                             if (sp != null)
                             {
-                                sp.Position.Y = door.ClosedY;
+                                sp.RelativePosition.Y = door.ClosedY;
                             }
                         }
                         door.OpeningDirection = 0;
                     }
                     else if(delta != 0)
                     {
-                        Spatial sp = door.Owner.GetComponent<Spatial>();
+                        Transform sp = door.Owner.GetComponent<Transform>();
                         if(sp != null)
                         {
                             sp.Position += new Vector2D(0, delta);
@@ -77,7 +77,7 @@ namespace WooferGame.Systems.Puzzles
                 {
 
                     multiplier = (door.CurrentOpenDistance < door.MaxOpenDistance || !door.Toggle) ? 1 : -1;
-                    Spatial sp = door.Owner.GetComponent<Spatial>();
+                    Transform sp = door.Owner.GetComponent<Transform>();
                     if (sp != null)
                     {
                         if (door.CurrentOpenDistance == 0)

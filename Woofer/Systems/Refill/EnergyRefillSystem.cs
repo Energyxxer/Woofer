@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using EntityComponentSystem.Components;
 using EntityComponentSystem.ComponentSystems;
 using EntityComponentSystem.Events;
 using EntityComponentSystem.Util;
@@ -64,7 +65,7 @@ namespace WooferGame.Systems.Refill
             {
                 pulse.EnergyMeter = pulse.MaxEnergy;
                 refill.Enabled = false;
-                Spatial sp = refill.Owner.GetComponent<Spatial>();
+                Transform sp = refill.Owner.GetComponent<Transform>();
                 if(sp != null) Owner.Entities.Add(new SoundParticle(sp.Position));
                 Owner.Controller.AudioUnit["refill"].Play();
                 AnyDisabled = true;

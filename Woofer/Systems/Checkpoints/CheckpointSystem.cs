@@ -17,14 +17,14 @@ namespace WooferGame.Systems.Checkpoints
         {
             if(re is CheckpointRequestEvent e)
             {
-                Spatial sp = e.EntityToMove.Components.Get<Spatial>();
+                Transform sp = e.EntityToMove.Components.Get<Transform>();
                 Physical ph = e.EntityToMove.Components.Get<Physical>();
 
                 foreach(CheckpointComponent checkpoint in WatchedComponents)
                 {
                     if(checkpoint.Selected)
                     {
-                        if(sp != null) sp.Position = checkpoint.Owner.Components.Get<Spatial>().Position;
+                        if(sp != null) sp.Position = checkpoint.Owner.Components.Get<Transform>().Position;
                         if(ph != null) ph.Velocity = Vector2D.Empty;
                         break;
                     }

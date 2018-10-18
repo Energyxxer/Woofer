@@ -16,7 +16,7 @@ namespace WooferGame.Scenes.LevelObjects
     {
         public InteractableButton(Vector2D pos, long idToActivate)
         {
-            this.Components.Add(new Spatial(pos));
+            Components.Get<Transform>().Position = pos;
             this.Components.Add(new Renderable(new Sprite("lab_objects", new Rectangle(-4.5, -4.5, 9, 9), new Rectangle(0, 288, 9, 9))));
             this.Components.Add(new LevelRenderable());
             this.Components.Add(new Interactable() { IconOffset = new Vector2D(8, 8) });

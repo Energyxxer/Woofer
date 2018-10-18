@@ -15,7 +15,7 @@ namespace WooferGame.Systems.Checkpoints
 
         public Checkpoint(double x, double y, Rectangle bounds, bool selected)
         {
-            this.Components.Add(new Spatial(x, y));
+            this.Components.Get<Transform>().Position = new Vector2D(x, y);
             this.Components.Add(new Physical() { GravityMultiplier = 0 });
             this.Components.Add(new SoftBody(new CollisionBox(bounds.X, bounds.Y, bounds.Width, bounds.Height), 0f) { Movable = false });
             this.Components.Add(new CheckpointComponent() { Selected = selected });

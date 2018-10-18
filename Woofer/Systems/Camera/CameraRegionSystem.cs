@@ -22,7 +22,7 @@ namespace WooferGame.Systems.Camera
             {
                 foreach(CameraRegionComponent region in WatchedComponents)
                 {
-                    Spatial sp = region.Owner.Components.Get<Spatial>();
+                    Transform sp = region.Owner.Components.Get<Transform>();
                     Rectangle area = region.Area;
                     if (sp != null) area += sp.Position;
 

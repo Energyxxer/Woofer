@@ -20,13 +20,13 @@ namespace WooferGame.Systems.Linking
             {
                 if(following.FollowedID != 0 && Owner.Entities[following.FollowedID] is Entity followed)
                 {
-                    Spatial followedSp = followed.Components.Get<Spatial>();
+                    Transform followedSp = followed.Components.Get<Transform>();
                     if (followedSp == null) continue;
-                    Spatial followingSp = following.Owner.Components.Get<Spatial>();
+                    Transform followingSp = following.Owner.Components.Get<Transform>();
                     if (followingSp == null) continue;
                     FollowedComponent fc = followed.Components.Get<FollowedComponent>();
                     
-                    following.Owner.Components.Get<Spatial>().Position = followedSp.Position + (fc != null ? fc.Offset : Vector2D.Empty) + following.Offset;
+                    following.Owner.Components.Get<Transform>().Position = followedSp.Position + (fc != null ? fc.Offset : Vector2D.Empty) + following.Offset;
                 }
             }
         }

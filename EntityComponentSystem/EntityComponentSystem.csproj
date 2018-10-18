@@ -47,6 +47,7 @@
     <Compile Include="ComponentSystems\SystemMap.cs" />
     <Compile Include="Components\Component.cs" />
     <Compile Include="Components\ComponentMap.cs" />
+    <Compile Include="Components\Transform.cs" />
     <Compile Include="Interfaces\Input\ButtonInput.cs" />
     <Compile Include="Interfaces\Visuals\LayerGraphics.cs" />
     <Compile Include="Saves\Json\Converter\DefaultConverters\BooleanConverter.cs" />

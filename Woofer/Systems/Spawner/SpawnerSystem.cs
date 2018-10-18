@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using EntityComponentSystem.Components;
 using EntityComponentSystem.ComponentSystems;
 using EntityComponentSystem.Entities;
 using EntityComponentSystem.Events;
@@ -26,7 +27,7 @@ namespace WooferGame.Systems.Spawner
                     if(toCopy != null)
                     {
                         Entity clone = TagIOUtils.CloneEntity(toCopy);
-                        if(clone.GetComponent<Spatial>() is Spatial sp && spawner.Owner.GetComponent<Spatial>() is Spatial spawnerSp)
+                        if(clone.GetComponent<Transform>() is Transform sp && spawner.Owner.GetComponent<Transform>() is Transform spawnerSp)
                         {
                             sp.Position = spawnerSp.Position;
                         }

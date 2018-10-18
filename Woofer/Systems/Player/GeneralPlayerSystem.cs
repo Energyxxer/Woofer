@@ -93,7 +93,7 @@ namespace WooferGame.Systems.Player
                         pulse.EnergyMeter = pulse.MaxEnergy;
                     }
                     Woofer.Controller.CommandFired(new SaveCommand());
-                    Spatial sp = ae.Affected.GetComponent<Spatial>();
+                    Transform sp = ae.Affected.GetComponent<Transform>();
                     if (sp != null) Owner.Entities.Add(new SoundParticle(sp.Position));
                     Owner.Controller.AudioUnit["refill"].Play();
 
@@ -113,7 +113,7 @@ namespace WooferGame.Systems.Player
                         health.HealthBarVisible = true;
                     }
                     Woofer.Controller.CommandFired(new SaveCommand());
-                    Spatial sp = ae.Affected.GetComponent<Spatial>();
+                    Transform sp = ae.Affected.GetComponent<Transform>();
                     if (sp != null) Owner.Entities.Add(new SoundParticle(sp.Position));
                     Owner.Controller.AudioUnit["refill"].Play();
                 }

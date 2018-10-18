@@ -15,7 +15,7 @@ namespace WooferGame.Systems.Refill
     {
         public EnergyRefillOrb(Vector2D pos)
         {
-            this.Components.Add(new Spatial(pos));
+            Components.Get<Transform>().Position = pos;
             this.Components.Add(new Physical() { GravityMultiplier = 0 });
             this.Components.Add(new SoftBody(new CollisionBox(-8, -8, 16, 16), 0) { Movable = false });
             this.Components.Add(new Renderable(new Sprite("grass", new Rectangle(-8, -8, 16, 16))));

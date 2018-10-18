@@ -21,7 +21,7 @@ namespace WooferGame.Systems.Sounds
         {
             if(evt is ActivationEvent ae && ae.Affected.Components.Get<SoundEmitter>() is SoundEmitter em)
             {
-                Spatial sp = ae.Affected.Components.Get<Spatial>();
+                Transform sp = ae.Affected.Components.Get<Transform>();
                 foreach(Sound sound in em.Sounds)
                 {
                     double volumeMultiplier = 1;

@@ -14,7 +14,6 @@ namespace WooferGame.Systems.Interaction
     {
         public InteractionIconEntity()
         {
-            this.Components.Add(new Spatial());
             this.Components.Add(new Renderable(new Sprite("gui", new Rectangle(-4.5, -4.5, 9, 9), new Rectangle(0, 18, 9, 9)) { Modifiers = Sprite.Mod_InputType}));
             this.Components.Add(new LevelRenderable(99));
             this.Components.Add(new InteractionIcon());

@@ -204,7 +204,7 @@ namespace WooferGame.Systems.Player.Animation
         {
             if(e is PlayerJumpEvent je)
             {
-                if(je.Sender.Owner.Components.Has<PlayerAnimation>() && je.Sender.Owner.Components.Get<Spatial>() is Spatial sp)
+                if(je.Sender.Owner.Components.Has<PlayerAnimation>() && je.Sender.Owner.Components.Get<Transform>() is Transform sp)
                 {
                     Owner.Entities.Add(new CloudParticle(sp.Position + 2 * Vector2D.UnitJ + new Vector2D(-3, 0)));
                     Owner.Entities.Add(new CloudParticle(sp.Position + 2 * Vector2D.UnitJ + new Vector2D(3, 1)));

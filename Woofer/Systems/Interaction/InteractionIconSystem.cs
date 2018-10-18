@@ -24,7 +24,7 @@ namespace WooferGame.Systems.Interaction
             if (Focused == null) return;
             InteractionIcon icon = WatchedComponents.FirstOrDefault() as InteractionIcon;
             if (icon == null) return;
-            icon.Owner.Components.Get<Spatial>().Position = Focused.Owner.Components.Get<Spatial>().Position + Focused.IconOffset;
+            icon.Owner.Components.Get<Transform>().Position = Focused.Owner.Components.Get<Transform>().Position + Focused.IconOffset;
         }
 
         public override void EventFired(object sender, Event evt)
@@ -33,10 +33,10 @@ namespace WooferGame.Systems.Interaction
             if (icon == null) return;
             if(evt is InteractionRangeEnter enter)
             {
-                if(enter.Interactable.Owner.Components.Has<Spatial>())
+                if(enter.Interactable.Owner.Components.Has<Transform>())
                 {
                     icon.Owner.Active = true;
-                    icon.Owner.Components.Get<Spatial>().Position = enter.Interactable.Owner.Components.Get<Spatial>().Position + enter.Interactable.IconOffset;
+                    icon.Owner.Components.Get<Transform>().Position = enter.Interactable.Owner.Components.Get<Transform>().Position + enter.Interactable.IconOffset;
                     Focused = enter.Interactable;
                 }
             } else if(evt is InteractionRangeExit)

@@ -18,7 +18,7 @@ namespace WooferGame.Systems.Camera
 
         public CameraRegion(Rectangle area, Vector2D focus)
         {
-            this.Components.Add(new Spatial(focus));
+            Components.Get<Transform>().Position = focus;
             this.Components.Add(new CameraRegionComponent(area - focus, Vector2D.Empty));
         }
     }

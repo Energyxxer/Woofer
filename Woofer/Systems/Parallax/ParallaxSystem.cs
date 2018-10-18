@@ -27,7 +27,7 @@ namespace WooferGame.Systems.Parallax
             {
                 if (!parallax.Owner.Active) continue;
                 var layer = parallax.Speed.X >= 1 ? front : back;
-                Spatial sp = parallax.Owner.Components.Get<Spatial>();
+                Transform sp = parallax.Owner.Components.Get<Transform>();
 
                 Vector2D center = (sp.Position - view.Location);
                 center.X *= parallax.Speed.X;

@@ -209,7 +209,7 @@ namespace WooferGame.Systems.Physics
                 foreach(Component c in intersectingX)
                 {
                     Physical phys = c.Owner.Components.Get<Physical>();
-                    Spatial sp = c.Owner.Components.Get<Spatial>();
+                    Transform sp = c.Owner.Components.Get<Transform>();
 
                     IEnumerable<CollisionBox> solidBoxes =
                             c is SoftBody ?
@@ -289,7 +289,7 @@ namespace WooferGame.Systems.Physics
             if (c is Physical ph) return Math.Min(ph.Position.X, ph.PreviousPosition.X);
             ph = c.Owner.Components.Get<Physical>();
             SoftBody sb = c as SoftBody;
-            Spatial sp = c.Owner.GetComponent<Spatial>();
+            Transform sp = c.Owner.GetComponent<Transform>();
 
             CollisionBox box = (c is RigidBody rb) ? rb.UnionBounds : sb?.Bounds;
 
@@ -304,7 +304,7 @@ namespace WooferGame.Systems.Physics
             if (c is Physical ph) return Math.Min(ph.Position.X, ph.PreviousPosition.X);
             ph = c.Owner.Components.Get<Physical>();
             SoftBody sb = c as SoftBody;
-            Spatial sp = c.Owner.GetComponent<Spatial>();
+            Transform sp = c.Owner.GetComponent<Transform>();
 
             CollisionBox box = (c is RigidBody rb) ? rb.UnionBounds : sb?.Bounds;
 

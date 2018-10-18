@@ -16,7 +16,7 @@ namespace WooferGame.Scenes.LevelObjects
     {
         public Shelf(Vector2D pos, HorizontalDirection direction)
         {
-            this.Components.Add(new Spatial(pos));
+            Components.Get<Transform>().Position = pos;
             this.Components.Add(new Physical() { GravityMultiplier = 0 });
 
             double width = 80;

@@ -33,14 +33,14 @@ namespace WooferGame.Systems.Enemies
         {
             Entity player = WatchedComponents.FirstOrDefault()?.Owner;
             if (player == null) return;
-            Spatial playerSp = player.Components.Get<Spatial>();
+            Transform playerSp = player.Components.Get<Transform>();
             if (playerSp == null) return;
 
             foreach(SentryAI sentry in WatchedComponents.Where(c => c is SentryAI && c.Owner.Active))
             {
                 if (sentry.ActionTime > 0) sentry.ActionTime--;
                 if ((sentry.Owner.Components.Get<Health>()?.CurrentHealth ?? 1) <= 0) continue;
-                Spatial sp = sentry.Owner.Components.Get<Spatial>();
+                Transform sp = sentry.Owner.Components.Get<Transform>();
                 Physical phys = sentry.Owner.Components.Get<Physical>();
                 if (sp == null || phys == null) continue;
                 bool inRange = (sp.Position - playerSp.Position).Magnitude < sentry.FollowDistance;

@@ -243,7 +243,7 @@ namespace WooferGame.Meta.LevelEditor.Systems.EntityView
                     if (member.Owner != null)
                     {
                         Entity entity = member.Scene.Entities[member.Owner.Owner.Id];
-                        pivot = entity.Components.Get<Spatial>().Position;
+                        pivot = entity.Components.Get<Transform>().Position;
                     }
                     member.Scene.Events.InvokeEvent(new ForceMoveCursorEvent(((Vector2D)member.GetValue()) + pivot));
                     member.Scene.Events.InvokeEvent(new ForceModalChangeEvent("move_cursor_mode", null));
@@ -344,7 +344,7 @@ namespace WooferGame.Meta.LevelEditor.Systems.EntityView
                 if (member.Owner != null)
                 {
                     Entity entity = member.Scene.Entities[member.Owner.Owner.Id];
-                    pivot = entity.Components.Get<Spatial>().Position;
+                    pivot = entity.Components.Get<Transform>().Position;
                     member.Scene.Events.InvokeEvent(new ForceMoveCursorEvent(pivot));
                 }
                 member.Scene.Events.InvokeEvent(new ForceModalChangeEvent("collision_cursor_mode", null));
@@ -357,7 +357,7 @@ namespace WooferGame.Meta.LevelEditor.Systems.EntityView
                 if (member.Owner != null)
                 {
                     Entity entity = member.Scene.Entities[member.Owner.Owner.Id];
-                    pivot = entity.Components.Get<Spatial>().Position;
+                    pivot = entity.Components.Get<Transform>().Position;
                     member.Scene.Events.InvokeEvent(new ForceMoveCursorEvent(pivot));
                 }
                 member.Owner.Owner.Owner.Owner.Events.InvokeEvent(new ForceModalChangeEvent("collision_cursor_mode", null));
@@ -372,7 +372,7 @@ namespace WooferGame.Meta.LevelEditor.Systems.EntityView
                 {
                     Entity entity = member.Scene.Entities[member.Owner.Owner.Id];
                     forbidden = entity.Id;
-                    pivot = entity.Components.Get<Spatial>().Position;
+                    pivot = entity.Components.Get<Transform>().Position;
                     member.Scene.Events.InvokeEvent(new ForceMoveCursorEvent(pivot));
                 }
                 member.Scene.Events.InvokeEvent(new ForceModalChangeEvent("entity_selection_cursor_mode", null));
@@ -387,7 +387,7 @@ namespace WooferGame.Meta.LevelEditor.Systems.EntityView
                 {
                     Entity entity = member.Scene.Entities[member.Owner.Owner.Id];
                     forbidden = entity.Id;
-                    pivot = entity.Components.Get<Spatial>()?.Position ?? Vector2D.Empty;
+                    pivot = entity.Components.Get<Transform>()?.Position ?? Vector2D.Empty;
                     member.Scene.Events.InvokeEvent(new ForceMoveCursorEvent(pivot));
                 }
                 member.Scene.Events.InvokeEvent(new ForceModalChangeEvent("entity_selection_cursor_mode", null));
@@ -400,7 +400,7 @@ namespace WooferGame.Meta.LevelEditor.Systems.EntityView
                 if (member.Owner != null)
                 {
                     Entity entity = member.Scene.Entities[member.Owner.Owner.Id];
-                    origin += entity.Components.Get<Spatial>()?.Position ?? Vector2D.Empty;
+                    origin += entity.Components.Get<Transform>()?.Position ?? Vector2D.Empty;
                     member.Scene.Events.InvokeEvent(new ForceMoveCursorEvent(origin));
                 }
                 member.Scene.Events.InvokeEvent(new ForceModalChangeEvent("sprite_cursor_mode", null));
@@ -453,7 +453,7 @@ namespace WooferGame.Meta.LevelEditor.Systems.EntityView
                 if (member.Owner != null)
                 {
                     Entity entity = member.Scene.Entities[member.Owner.Owner.Id];
-                    origin += entity.Components.Get<Spatial>().Position;
+                    origin += entity.Components.Get<Transform>().Position;
                     origin += entity.Components.Get<RoomBuilder>().Offset;
                     member.Scene.Events.InvokeEvent(new ForceMoveCursorEvent(origin));
                 }

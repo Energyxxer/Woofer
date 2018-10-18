@@ -28,6 +28,7 @@ namespace EntityComponentSystem.Components
             {
                 _dict.Add(component.ComponentName, component);
                 component.Owner = _owner;
+                component.Initialize();
                 Changed.Invoke(new ComponentChangedEventArgs(component, false));
             }
         }
@@ -38,7 +39,7 @@ namespace EntityComponentSystem.Components
 
         public void Remove(string identifier)
         {
-            if (_dict.ContainsKey(identifier))
+            if (_dict.ContainsKey(identifier) && !(_dict[identifier] is Transform))
             {
                 Changed.Invoke(new ComponentChangedEventArgs(this[identifier], true));
                 _dict.Remove(identifier);

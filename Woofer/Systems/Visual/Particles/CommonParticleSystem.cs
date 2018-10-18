@@ -23,7 +23,7 @@ namespace WooferGame.Systems.Visual.Particles
             foreach(ProjectileComponent projectile in WatchedComponents)
             {
                 if (!projectile.Owner.Active) continue;
-                Spatial sp = projectile.Owner.Components.Get<Spatial>();
+                Transform sp = projectile.Owner.Components.Get<Transform>();
                 if(sp != null)
                 {
                     Owner.Entities.Add(new EmberParticle(sp.Position, Owner.Random.Next(0, 3)));
@@ -35,7 +35,7 @@ namespace WooferGame.Systems.Visual.Particles
         {
             if((e is RigidCollisionEvent || e is DamageEvent) && e.Sender.Owner.Components.Has<ProjectileComponent>())
             {
-                Spatial sp = e.Sender.Owner.Components.Get<Spatial>();
+                Transform sp = e.Sender.Owner.Components.Get<Transform>();
                 if(sp != null)
                 {
                     Owner.Entities.Add(new PopParticle(sp.Position, 2));

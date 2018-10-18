@@ -8,7 +8,6 @@ using WooferGame.Systems.Physics;
 using WooferGame.Systems.Player;
 using WooferGame.Systems.Pulse;
 using WooferGame.Systems.Visual;
-using WooferGame.Test_Data;
 
 namespace WooferGame.Scenes
 {
@@ -66,7 +65,6 @@ namespace WooferGame.Scenes
 
             for (int x = -1; x <= 20; x++)
             {
-                Entities.Add(new TileEntity("brick", x, 0));
 
 
                 //Entities.Add(new TileEntity("brick", x, 8));
@@ -79,7 +77,6 @@ namespace WooferGame.Scenes
                 //Entities.Add(new TileEntity("brick", 7, y));
             }
             //Entities.Add(new TileEntity("brick", 15, 1));
-            Entities.Add(new TileEntity("brick", 0, 128/16));
             
 
             Entities.Add(player = new PlayerEntity(-24, 64));

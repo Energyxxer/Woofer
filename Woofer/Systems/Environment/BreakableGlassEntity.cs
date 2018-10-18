@@ -12,7 +12,7 @@ namespace WooferGame.Systems.Environment
     {
         public BreakableGlassEntity(Rectangle bounds, Rectangle textureSource, Vector2D textureOffset)
         {
-            Components.Add(new Spatial(bounds.X, bounds.Y));
+            Components.Get<Transform>().Position = bounds.Position;
             Components.Add(new Physical() { GravityMultiplier = 0 });
             Components.Add(new RigidBody(new CollisionBox[] { new CollisionBox(0, 0, bounds.Width, bounds.Height) }));
             Components.Add(new PulseReceiverPhysical());

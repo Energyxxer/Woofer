@@ -32,7 +32,7 @@ namespace WooferGame.Systems.DeathBarrier
                     barrier = component as DeathBarrierComponent;
                 } else if(component is RemoveOnBarrierComponent)
                 {
-                    if(component.Owner.Components.Get<Spatial>() is Spatial sp)
+                    if(component.Owner.Components.Get<Transform>() is Transform sp)
                     {
                         if (sp.Position.Y < (barrier?.Y ?? 0))
                         {
@@ -41,7 +41,7 @@ namespace WooferGame.Systems.DeathBarrier
                     }
                 } else if(component is CheckpointOnBarrierComponent)
                 {
-                    if(component.Owner.Components.Get<Spatial>() is Spatial sp)
+                    if(component.Owner.Components.Get<Transform>() is Transform sp)
                     {
                         if(sp.Position.Y < (barrier?.Y ?? 0))
                         {

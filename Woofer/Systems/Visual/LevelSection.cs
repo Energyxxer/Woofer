@@ -17,7 +17,7 @@ namespace WooferGame.Systems.Visual
 
         public LevelSection(string texture, Vector2D pos, Rectangle bounds)
         {
-            Components.Add(new Spatial(pos));
+            Components.Get<Transform>().Position = pos;
             Components.Add(new Renderable(texture, bounds));
             Components.Add(new LevelRenderable());
             Components.Add(new NoEditorHoverSelect());
@@ -57,9 +57,9 @@ namespace WooferGame.Systems.Visual
         {
             foreach(Entity entity in queuedEntities)
             {
-                if(entity.Components.Get<Spatial>() is Spatial sp)
+                if(entity.Components.Get<Transform>() is Transform sp)
                 {
-                    sp.Position += this.Components.Get<Spatial>().Position;
+                    sp.Position += this.Components.Get<Transform>().Position;
                 }
                 Owner.Entities.Add(entity);
             }

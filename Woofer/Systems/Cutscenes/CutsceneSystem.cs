@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using EntityComponentSystem.Components;
 using EntityComponentSystem.ComponentSystems;
 using EntityComponentSystem.Entities;
 using EntityComponentSystem.Events;
@@ -69,19 +70,19 @@ namespace WooferGame.Systems.Cutscenes
                 if(CurrentNode != 0 && Owner.Entities[CurrentNode] is Entity nodeEntity)
                 {
                     node = nodeEntity.Components.Get<CutsceneNode>();
-                    Spatial spCur = nodeEntity.Components.Get<Spatial>();
+                    Transform spCur = nodeEntity.Components.Get<Transform>();
                     if (node == null || spCur == null) return;
 
                     Vector2D playerCameraPos = new Vector2D();
                     if(WatchedComponents.Count > 0)
                     {
-                        playerCameraPos = WatchedComponents[0].Owner.Components.Get<Spatial>()?.Position ?? Vector2D.Empty;
+                        playerCameraPos = WatchedComponents[0].Owner.Components.Get<Transform>()?.Position ?? Vector2D.Empty;
                         playerCameraPos += (WatchedComponents[0] as CameraTracked)?.Offset ?? Vector2D.Empty;
                     }
                     if (node.Duration == 0) return;
                     Vector2D currentPos = node.FollowPlayer ? playerCameraPos : spCur.Position;
                     CutsceneNode nextNode = Owner.Entities[node.Next]?.Components.Get<CutsceneNode>();
-                    Vector2D nextPos = (nextNode?.FollowPlayer ?? true) ? playerCameraPos : nextNode?.Owner.Components.Get<Spatial>()?.Position ?? spCur.Position;
+                    Vector2D nextPos = (nextNode?.FollowPlayer ?? true) ? playerCameraPos : nextNode?.Owner.Components.Get<Transform>()?.Position ?? spCur.Position;
 
                     Vector2D delta = nextPos - currentPos;
 

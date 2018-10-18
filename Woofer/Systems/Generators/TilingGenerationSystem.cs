@@ -77,7 +77,7 @@ namespace WooferGame.Systems.Generators
             {
                 if(gen.Preview)
                 {
-                    Renderable.Render(layer, Owner.CurrentViewport, r, gen.Sprites, gen.Owner.Components.Get<Spatial>());
+                    Renderable.Render(layer, Owner.CurrentViewport, r, gen.Sprites, gen.Owner.Components.Get<Transform>());
                 }
             }
         }

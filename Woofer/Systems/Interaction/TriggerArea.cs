@@ -19,7 +19,7 @@ namespace WooferGame.Systems.Interaction
         }
         public TriggerArea(Rectangle bounds, long idToActivate, bool oneTime)
         {
-            this.Components.Add(new Spatial(bounds.Position));
+            Components.Get<Transform>().Position = bounds.Position;
             this.Components.Add(new Physical() { GravityMultiplier = 0 });
             this.Components.Add(new SoftBody(new CollisionBox(0, 0, bounds.Width, bounds.Height), 0f));
             if(idToActivate != 0) this.Components.Add(new LinkedActivationComponent(idToActivate));

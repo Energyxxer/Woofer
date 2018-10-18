@@ -94,7 +94,7 @@ namespace WooferGame.Systems.Visual
             sprites.AddRange(sorted);
         }
 
-        public static void Render<TSurface, TSource>(DirectGraphicsContext<TSurface, TSource> layer, CameraView view, ScreenRenderer<TSurface, TSource> r, List<Sprite> sprites, Spatial spatial = null)
+        public static void Render<TSurface, TSource>(DirectGraphicsContext<TSurface, TSource> layer, CameraView view, ScreenRenderer<TSurface, TSource> r, List<Sprite> sprites, Transform transform = null)
         {
             IGameController controller = Woofer.Controller;
             
@@ -103,10 +103,10 @@ namespace WooferGame.Systems.Visual
                 if (sprite.Source.X < 0 || sprite.Source.Y < 0) continue;
                 float x = (float)sprite.Destination.X;
                 float y = (float)sprite.Destination.Y;
-                if (spatial != null)
+                if (transform != null)
                 {
-                    x += ((float)(spatial.Position.X));
-                    y += ((float)(spatial.Position.Y));
+                    x += ((float)(transform.Position.X));
+                    y += ((float)(transform.Position.Y));
                 }
                 float width = (float)sprite.Destination.Width;
                 float height = (float)sprite.Destination.Height;

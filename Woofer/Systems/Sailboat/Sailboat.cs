@@ -16,7 +16,7 @@ namespace WooferGame.Systems.Sailboat
     {
         public Sailboat(Vector2D pos)
         {
-            this.Components.Add(new Spatial(pos));
+            Components.Get<Transform>().Position = pos;
             this.Components.Add(new Physical() { GravityMultiplier = 0 });
             this.Components.Add(new RigidBody(
                 new CollisionBox(-32, -6, 64, 6),

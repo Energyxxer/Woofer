@@ -11,8 +11,8 @@ namespace WooferGame.Systems.Physics
         [HideInInspector]
         public Vector2D Position
         {
-            get => Owner.Components.Get<Spatial>().Position;
-            set => Owner.Components.Get<Spatial>().Position = value;
+            get => Owner.Components.Get<Transform>().Position;
+            set => Owner.Components.Get<Transform>().Position = value;
         }
         [PersistentProperty]
         public Vector2D Velocity = new Vector2D();

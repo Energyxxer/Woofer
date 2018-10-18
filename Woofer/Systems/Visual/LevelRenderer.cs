@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using EntityComponentSystem.Components;
 using EntityComponentSystem.ComponentSystems;
 using EntityComponentSystem.Scenes;
 
@@ -30,7 +31,7 @@ namespace WooferGame.Systems.Visual
                 if (tile.Owner.Components.Has<DamageFlashing>() && tile.Owner.Components.Get<Health>() is Health health && ((int)(health.InvincibilityTimer / 6) % 2) != 0) continue;
                 if (tile.Owner.Components.Get<Renderable>() is Renderable renderable)
                 {
-                    Renderable.Render(layer, view, r, renderable.Sprites, renderable.Owner.Components.Get<Spatial>());
+                    Renderable.Render(layer, view, r, renderable.Sprites, renderable.Owner.Components.Get<Transform>());
                 }
             }
             

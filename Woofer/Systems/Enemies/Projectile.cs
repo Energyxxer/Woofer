@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using EntityComponentSystem.Components;
 using EntityComponentSystem.Entities;
 using EntityComponentSystem.Util;
 using WooferGame.Systems.DeathBarrier;
@@ -19,7 +20,7 @@ namespace WooferGame.Systems.Enemies
     {
         public Projectile(Entity thrower, Vector2D pos, Vector2D velocity)
         {
-            Components.Add(new Spatial(pos));
+            Components.Get<Transform>().Position = pos;
             Components.Add(new Physical() { Velocity = velocity});
 
             Components.Add(new LevelRenderable());

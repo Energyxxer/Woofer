@@ -28,7 +28,7 @@ namespace WooferGame.Systems.Enemies.Boss
     {
         public BossProjectileEntity(Vector2D pos)
         {
-            Components.Add(new Spatial(pos));
+            Components.Get<Transform>().Position = pos;
             Components.Add(new Physical() { GravityMultiplier = 0.8 });
             Components.Add(new SoftBody(new CollisionBox(-16, -16, 32, 32), 1f) { Movable = false, PassThroughLevel = true });
             Components.Add(new LevelRenderable(-3));

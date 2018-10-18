@@ -67,9 +67,9 @@ namespace WooferGame.Systems.Pulse
 
                         pa.EnergyMeter -= pa.PulseCost;
 
-                        if (pa.Owner.Components.Has<Spatial>()) {
+                        if (pa.Owner.Components.Has<Transform>()) {
 
-                            Spatial sp = pa.Owner.Components.Get<Spatial>();
+                            Transform sp = pa.Owner.Components.Get<Transform>();
                             if (sp == null) continue;
                             PlayerOrientation po = pa.Owner.Components.Get<PlayerOrientation>();
 
@@ -97,7 +97,7 @@ namespace WooferGame.Systems.Pulse
                 {
                     if (!pp.Owner.Active) continue;
                     if (pp.Owner == evt.Sender.Owner) continue;
-                    if (!pp.Owner.Components.Has<Spatial>() || !pp.Owner.Components.Has<Physical>()) continue;
+                    if (!pp.Owner.Components.Has<Transform>() || !pp.Owner.Components.Has<Physical>()) continue;
                     Physical ph = pp.Owner.Components.Get<Physical>();
 
                     Vector2D center = pp.Owner.Components.Has<SoftBody>() ? pp.Owner.Components.Get<SoftBody>().Bounds.Offset(ph.Position).Center : ph.Position;
@@ -170,7 +170,7 @@ namespace WooferGame.Systems.Pulse
 
                     Vector2D point = pr.Offset;
 
-                    if (pr.Owner.Components.Get<Spatial>() is Spatial sp) point += sp.Position;
+                    if (pr.Owner.Components.Get<Transform>() is Transform sp) point += sp.Position;
 
                     if(pe.Direction.Magnitude == 0 || GeneralUtil.SubtractAngles((point - pe.Source).Angle, pe.Direction.Angle) <= Math.PI/4)
                     {
@@ -193,7 +193,7 @@ namespace WooferGame.Systems.Pulse
             } else if(evt is ActivationEvent e && (pem = e.Affected.Components.Get<PulseEmitterComponent>()) != null)
             {
                 Vector2D source = pem.Offset;
-                if (pem.Owner.Components.Get<Spatial>() is Spatial sp) source += sp.Position;
+                if (pem.Owner.Components.Get<Transform>() is Transform sp) source += sp.Position;
                 Owner.Events.InvokeEvent(new PulseEvent(pem, source, pem.Direction, pem.Strength, pem.Reach));
             }
         }

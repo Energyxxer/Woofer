@@ -203,7 +203,7 @@ namespace WooferGame.Meta.LevelEditor.Systems
             {
                 Owner.Entities.Add(entity);
                 Owner.Entities.Flush();
-                if(entity.Components.Get<Spatial>() is Spatial sp)
+                if(entity.Components.Get<Transform>() is Transform sp)
                 {
                     sp.Position = Owner.CurrentViewport.Location;
                 }

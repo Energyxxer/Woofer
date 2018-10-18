@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2667D3DE-1428-44C7-ADA4-6AAE4FF3AE08}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EntityComponentSystem</RootNamespace>
+    <AssemblyName>EntityComponentSystem</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Commands\Command.cs" />
+    <Compile Include="ComponentSystems\ComponentSystem.cs" />
+    <Compile Include="ComponentSystems\SystemMap.cs" />
+    <Compile Include="Components\Component.cs" />
+    <Compile Include="Components\ComponentMap.cs" />
+    <Compile Include="Interfaces\Input\ButtonInput.cs" />
+    <Compile Include="Interfaces\Visuals\LayerGraphics.cs" />
+    <Compile Include="Saves\Json\Converter\DefaultConverters\BooleanConverter.cs" />
+    <Compile Include="Saves\Json\Converter\DefaultConverters\EnumConverter.cs" />
+    <Compile Include="Saves\Json\Converter\DefaultConverters\NumberConverter.cs" />
+    <Compile Include="Saves\Json\Converter\DefaultConverters\StringConverter.cs" />
+    <Compile Include="Saves\Json\Objects\TagByte.cs" />
+    <Compile Include="Saves\Json\Objects\TagFloat.cs" />
+    <Compile Include="Saves\Json\Objects\TagInt.cs" />
+    <Compile Include="Saves\Json\Objects\TagLong.cs" />
+    <Compile Include="Saves\Json\Objects\TagShort.cs" />
+    <Compile Include="Saves\LoadOperation.cs" />
+    <Compile Include="Saves\PersistentObjectAttribute.cs" />
+    <Compile Include="Saves\PersistentObjectConverter.cs" />
+    <Compile Include="Saves\PersistentPropertyAttribute.cs" />
+    <Compile Include="Entities\Entity.cs" />
+    <Compile Include="Entities\EntityMap.cs" />
+    <Compile Include="Events\Event.cs" />
+    <Compile Include="Events\EventManager.cs" />
+    <Compile Include="Interfaces\Audio\ISoundEffect.cs" />
+    <Compile Include="Interfaces\Controller\IAudioUnit.cs" />
+    <Compile Include="Interfaces\Controller\IGameController.cs" />
+    <Compile Include="Interfaces\Controller\IRenderingLayer.cs" />
+    <Compile Include="Interfaces\Controller\IRenderingUnit.cs" />
+    <Compile Include="Interfaces\Controller\ScreenRenderer.cs" />
+    <Compile Include="Interfaces\Input\ButtonState.cs" />
+    <Compile Include="Interfaces\Input\GamePad\IGamePad.cs" />
+    <Compile Include="Interfaces\Input\GamePad\IGamePadButtons.cs" />
+    <Compile Include="Interfaces\Input\GamePad\IGamePadCollection.cs" />
+    <Compile Include="Interfaces\Input\GamePad\IGamePadDPad.cs" />
+    <Compile Include="Interfaces\Input\GamePad\IGamePadThumbsticks.cs" />
+    <Compile Include="Interfaces\Input\GamePad\IGamePadTriggers.cs" />
+    <Compile Include="Interfaces\Controller\IInputUnit.cs" />
+    <Compile Include="Interfaces\Input\Keyboard\IKeyboard.cs" />
+    <Compile Include="Interfaces\Input\Keyboard\Key.cs" />
+    <Compile Include="Interfaces\Input\Mouse\IMouse.cs" />
+    <Compile Include="Interfaces\Visuals\DirectGraphicsContext.cs" />
+    <Compile Include="Interfaces\Visuals\DrawMode.cs" />
+    <Compile Include="Interfaces\Visuals\IGraphicsContext.cs" />
+    <Compile Include="Interfaces\Visuals\ISpriteManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Saves\Json\Converter\DefaultConverters\ListConverter.cs" />
+    <Compile Include="Saves\Json\Converter\ITagConverter.cs" />
+    <Compile Include="Saves\Json\TagMaster.cs" />
+    <Compile Include="Saves\Json\Objects\ITagPrimitive.cs" />
+    <Compile Include="Saves\Json\Objects\TagBoolean.cs" />
+    <Compile Include="Saves\Json\Objects\TagList.cs" />
+    <Compile Include="Saves\Json\Objects\TagDouble.cs" />
+    <Compile Include="Saves\Json\Objects\TagCompound.cs" />
+    <Compile Include="Saves\Json\Objects\ITag.cs" />
+    <Compile Include="Saves\Json\Objects\TagString.cs" />
+    <Compile Include="Saves\Json\Objects\TagCustom.cs" />
+    <Compile Include="Saves\SaveOperation.cs" />
+    <Compile Include="Scenes\Scene.cs" />
+    <Compile Include="Scenes\CameraView.cs" />
+    <Compile Include="Util\FreeVector2D.cs" />
+    <Compile Include="Util\GeneralUtil.cs" />
+    <Compile Include="Util\Generics\OrderedDictionary.cs" />
+    <Compile Include="Util\HorizontalDirection.cs" />
+    <Compile Include="Util\Rectangle.cs" />
+    <Compile Include="Util\Size.cs" />
+    <Compile Include="Util\Vector2D.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

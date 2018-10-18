@@ -1,0 +1,301 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{73F476D5-7C8E-47A2-B646-33CF0288E4FB}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>WooferGame</RootNamespace>
+    <AssemblyName>Woofer</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>
+    </ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\ColorConverter.cs" />
+    <Compile Include="Common\TextUnit.cs" />
+    <Compile Include="Controller\BackgroundRenderingLayer.cs" />
+    <Compile Include="Controller\Commands\ResolutionChangeCommand.cs" />
+    <Compile Include="Controller\Commands\SaveCommand.cs" />
+    <Compile Include="Controller\Commands\SceneChangeCommand.cs" />
+    <Compile Include="Controller\Game\GameData.cs" />
+    <Compile Include="Controller\Game\SaveGame.cs" />
+    <Compile Include="Controller\HudRenderingLayer.cs" />
+    <Compile Include="Controller\ParallaxRenderingLayer.cs" />
+    <Compile Include="Input\GamePadInputMap.cs" />
+    <Compile Include="Input\IInputMap.cs" />
+    <Compile Include="Input\InputMapSwitcher.cs" />
+    <Compile Include="Input\InputTimeframe.cs" />
+    <Compile Include="Input\KeyboardInputMap.cs" />
+    <Compile Include="Meta\FileSelect\FileSelect.cs" />
+    <Compile Include="Meta\FileSelect\FileSelectSystem.cs" />
+    <Compile Include="Meta\LevelEditor\Editor.cs" />
+    <Compile Include="Meta\LevelEditor\EditorMenuSystem.cs" />
+    <Compile Include="Meta\LevelEditor\InspectorAttribute.cs" />
+    <Compile Include="Meta\LevelEditor\Systems\AnimationView\AnimationViewSystem.cs" />
+    <Compile Include="Meta\LevelEditor\Systems\ComponentView\EnumSelectViewSystem.cs" />
+    <Compile Include="Meta\LevelEditor\Systems\CursorModes\CollisionCursorModeSystem.cs" />
+    <Compile Include="Meta\LevelEditor\Systems\CursorModes\CollisionFaceView.cs" />
+    <Compile Include="Meta\LevelEditor\Systems\CursorModes\EntitySelectionCursorModeSystem.cs" />
+    <Compile Include="Meta\LevelEditor\Systems\CursorModes\MoveCursorModeSystem.cs" />
+    <Compile Include="Meta\LevelEditor\Systems\CursorModes\RoomBuilderCursorModeSystem.cs" />
+    <Compile Include="Meta\LevelEditor\Systems\CursorModes\SpriteCursorModeSystem.cs" />
+    <Compile Include="Meta\LevelEditor\Systems\CursorModes\SpriteSourceViewSystem.cs" />
+    <Compile Include="Meta\LevelEditor\Systems\EditorCursorSystem.cs" />
+    <Compile Include="Meta\LevelEditor\Systems\EditorRendering.cs" />
+    <Compile Include="Meta\LevelEditor\Systems\EditorUtil.cs" />
+    <Compile Include="Meta\LevelEditor\Systems\EntityListSystem.cs" />
+    <Compile Include="Meta\LevelEditor\Systems\EntityOutliner.cs" />
+    <Compile Include="Meta\LevelEditor\Systems\EntityOutlines\EntityOutlineEvents.cs" />
+    <Compile Include="Meta\LevelEditor\Systems\EntityOutlines\Outline.cs" />
+    <Compile Include="Meta\LevelEditor\Systems\EntitySelectEvent.cs" />
+    <Compile Include="Meta\LevelEditor\Systems\EntityViewSystem.cs" />
+    <Compile Include="Meta\LevelEditor\Systems\EntityView\EntityViewHelper.cs" />
+    <Compile Include="Meta\LevelEditor\Systems\HelperComponents\NoEditorHoverSelect.cs" />
+    <Compile Include="Meta\LevelEditor\Systems\InputModes\NumberInputSystem.cs" />
+    <Compile Include="Meta\LevelEditor\Systems\InputModes\TextInputSystem.cs" />
+    <Compile Include="Meta\LevelEditor\Systems\ModalChangeEvent.cs" />
+    <Compile Include="Meta\LevelEditor\Systems\ModalFocusSystem.cs" />
+    <Compile Include="Meta\LevelEditor\Systems\ObjectEditor\ObjectViewSystem.cs" />
+    <Compile Include="Meta\LevelEditor\Systems\PrefabUtils.cs" />
+    <Compile Include="Meta\LevelEditor\Systems\SoundView\SoundsViewSystem.cs" />
+    <Compile Include="Meta\LevelEditor\Systems\SystemListSystem.cs" />
+    <Compile Include="Meta\LevelSelect\BackToMainMenuSystem.cs" />
+    <Compile Include="Meta\LevelSelect\LevelSelect.cs" />
+    <Compile Include="Meta\Loading\LoadingScreen.cs" />
+    <Compile Include="Meta\Loading\LoadingScreenSystem.cs" />
+    <Compile Include="Meta\WooferLoadOperation.cs" />
+    <Compile Include="Meta\WooferSaveOperation.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Controller\LevelRenderingLayer.cs" />
+    <Compile Include="Controller\WooferController.cs" />
+    <Compile Include="Controller\WooferRenderingUnit.cs" />
+    <Compile Include="Scenes\CommonSprites\Vent.cs" />
+    <Compile Include="Scenes\EndScene.cs" />
+    <Compile Include="Scenes\IntroScene.cs" />
+    <Compile Include="Scenes\Intro\IntroScreen.cs" />
+    <Compile Include="Scenes\Intro\IntroSystem.cs" />
+    <Compile Include="Scenes\LabRoomBuilder.cs" />
+    <Compile Include="Scenes\LabRoomTileset.cs" />
+    <Compile Include="Scenes\LevelObjects\InteractableButton.cs" />
+    <Compile Include="Scenes\LevelObjects\MovableBox.cs" />
+    <Compile Include="Scenes\LevelObjects\Ramp.cs" />
+    <Compile Include="Scenes\LevelObjects\Shelf.cs" />
+    <Compile Include="Scenes\LevelObjects\WooferGiver.cs" />
+    <Compile Include="Scenes\MainMenuScene.cs" />
+    <Compile Include="Scenes\Menu\MenuRendererSystem.cs" />
+    <Compile Include="Systems\Camera\CameraLocationQueryEvent.cs" />
+    <Compile Include="Systems\Camera\CameraRegion.cs" />
+    <Compile Include="Systems\Camera\CameraRegionComponent.cs" />
+    <Compile Include="Systems\Camera\CameraRegionSystem.cs" />
+    <Compile Include="Systems\Camera\CameraSystem.cs" />
+    <Compile Include="Systems\Camera\CameraTracked.cs" />
+    <Compile Include="Systems\Camera\Shake\CameraShakeComponent.cs" />
+    <Compile Include="Systems\Camera\Shake\CameraShakeEvent.cs" />
+    <Compile Include="Systems\Camera\Shake\CameraShakeSystem.cs" />
+    <Compile Include="Systems\Checkpoints\Checkpoint.cs" />
+    <Compile Include="Systems\Checkpoints\CheckpointComponent.cs" />
+    <Compile Include="Systems\Checkpoints\CheckpointSystem.cs" />
+    <Compile Include="Systems\Checkpoints\CheckpointRequestEvent.cs" />
+    <Compile Include="Systems\Checkpoints\CheckpointTrigger.cs" />
+    <Compile Include="Systems\Commands\CommandSystem.cs" />
+    <Compile Include="Systems\Commands\OnLoadListener.cs" />
+    <Compile Include="Systems\Commands\ResolutionChangeComponent.cs" />
+    <Compile Include="Systems\Commands\SceneChangeComponent.cs" />
+    <Compile Include="Systems\Commands\ScenePrepareComponent.cs" />
+    <Compile Include="Systems\Cutscenes\CutsceneNode.cs" />
+    <Compile Include="Systems\Cutscenes\CutsceneSystem.cs" />
+    <Compile Include="Systems\DeathBarrier\CheckpointOnBarrierComponent.cs" />
+    <Compile Include="Systems\DeathBarrier\DeathBarrier.cs" />
+    <Compile Include="Systems\DeathBarrier\DeathBarrierComponent.cs" />
+    <Compile Include="Systems\DeathBarrier\DeathBarrierSystem.cs" />
+    <Compile Include="Systems\DeathBarrier\RemoveOnBarrierComponent.cs" />
+    <Compile Include="Systems\Debug.cs" />
+    <Compile Include="Systems\Debug\DebugClippable.cs" />
+    <Compile Include="Systems\Debug\DebugClipping.cs" />
+    <Compile Include="Systems\Debug\Quicksave.cs" />
+    <Compile Include="Systems\Enemies\AISystem.cs" />
+    <Compile Include="Systems\Enemies\Boss\Boss.cs" />
+    <Compile Include="Systems\Enemies\Boss\BossLaser.cs" />
+    <Compile Include="Systems\Enemies\Boss\BossLaserSystem.cs" />
+    <Compile Include="Systems\Enemies\Boss\BossProjectile.cs" />
+    <Compile Include="Systems\Enemies\Boss\BossProjectileCatcher.cs" />
+    <Compile Include="Systems\Enemies\Boss\BossSystem.cs" />
+    <Compile Include="Systems\Enemies\Boss\GameEnd.cs" />
+    <Compile Include="Systems\Enemies\DeflectOnPulseComponent.cs" />
+    <Compile Include="Systems\Enemies\EnemyComponent.cs" />
+    <Compile Include="Systems\Enemies\Projectile.cs" />
+    <Compile Include="Systems\Enemies\ProjectileComponent.cs" />
+    <Compile Include="Systems\Enemies\SentryAI.cs" />
+    <Compile Include="Systems\Enemies\SentryAnimationSystem.cs" />
+    <Compile Include="Systems\Environment\BreakableGlassComponent.cs" />
+    <Compile Include="Systems\Environment\BreakableGlassEntity.cs" />
+    <Compile Include="Systems\Environment\GlassBreakingSystem.cs" />
+    <Compile Include="Systems\Generators\TilingGenerationSystem.cs" />
+    <Compile Include="Systems\Generators\TilingGenerator.cs" />
+    <Compile Include="Systems\HealthSystems\DamageEvent.cs" />
+    <Compile Include="Systems\HealthSystems\DamageFlashing.cs" />
+    <Compile Include="Systems\HealthSystems\DamageOnContactComponent.cs" />
+    <Compile Include="Systems\HealthSystems\DeathEvent.cs" />
+    <Compile Include="Systems\HealthSystems\Health.cs" />
+    <Compile Include="Systems\HealthSystems\HealthSystem.cs" />
+    <Compile Include="Systems\HealthSystems\OnDeathTrigger.cs" />
+    <Compile Include="Systems\HUD\HintSystem.cs" />
+    <Compile Include="Systems\HUD\ShowTextComponent.cs" />
+    <Compile Include="Systems\HUD\ShowTextEvent.cs" />
+    <Compile Include="Systems\Interaction\ActivationEvent.cs" />
+    <Compile Include="Systems\Interaction\ActivationSystem.cs" />
+    <Compile Include="Systems\Interaction\Interactable.cs" />
+    <Compile Include="Systems\Interaction\InteractingAgent.cs" />
+    <Compile Include="Systems\Interaction\InteractionIcon.cs" />
+    <Compile Include="Systems\Interaction\InteractionIconEntity.cs" />
+    <Compile Include="Systems\Interaction\InteractionIconSystem.cs" />
+    <Compile Include="Systems\Interaction\InteractionRangeEnter.cs" />
+    <Compile Include="Systems\Interaction\InteractionRangeExit.cs" />
+    <Compile Include="Systems\Interaction\InteractionSystem.cs" />
+    <Compile Include="Systems\Interaction\LinkedActivationComponent.cs" />
+    <Compile Include="Systems\Interaction\TriggerArea.cs" />
+    <Compile Include="Systems\Linking\FollowedComponent.cs" />
+    <Compile Include="Systems\Linking\FollowingComponent.cs" />
+    <Compile Include="Systems\Linking\FollowingSystem.cs" />
+    <Compile Include="Systems\Menu\PauseSystem.cs" />
+    <Compile Include="Systems\Meta\SwitchInputMethod.cs" />
+    <Compile Include="Systems\Movement\PlayerJumpEvent.cs" />
+    <Compile Include="Systems\Movement\PlayerMovement.cs" />
+    <Compile Include="Systems\Parallax\Parallax.cs" />
+    <Compile Include="Systems\Parallax\ParallaxObject.cs" />
+    <Compile Include="Systems\Parallax\ParallaxSystem.cs" />
+    <Compile Include="Systems\Physics\CollisionBox.cs" />
+    <Compile Include="Systems\Physics\CollisionBoxConverter.cs" />
+    <Compile Include="Systems\Physics\CollisionEvent.cs" />
+    <Compile Include="Systems\Physics\CollisionFaceProperties.cs" />
+    <Compile Include="Systems\Physics\Physical.cs" />
+    <Compile Include="Systems\Physics\PhysicsDebug.cs" />
+    <Compile Include="Systems\Physics\PhysicsSystem.cs" />
+    <Compile Include="Systems\Physics\RaycastEvent.cs" />
+    <Compile Include="Systems\Physics\RaycastIntersection.cs" />
+    <Compile Include="Systems\Physics\RemoveOnCollision.cs" />
+    <Compile Include="Systems\Physics\RigidBody.cs" />
+    <Compile Include="Systems\Physics\SoftBody.cs" />
+    <Compile Include="Systems\Player\Actions\PulseAbility.cs" />
+    <Compile Include="Systems\Player\Animation\PlayerAnimation.cs" />
+    <Compile Include="Systems\Player\Animation\PlayerAnimationSystem.cs" />
+    <Compile Include="Systems\Player\Feedback\PlayerFeedbackSystem.cs" />
+    <Compile Include="Systems\Player\GeneralPlayerSystem.cs" />
+    <Compile Include="Systems\Player\PlayerComponent.cs" />
+    <Compile Include="Systems\Player\WooferGiverComponent.cs" />
+    <Compile Include="Systems\Pulse\PulseEmitter.cs" />
+    <Compile Include="Systems\Pulse\PulseEmitterComponent.cs" />
+    <Compile Include="Systems\Pulse\PulseSystem.cs" />
+    <Compile Include="Systems\Player\PlayerEntity.cs" />
+    <Compile Include="Systems\Player\PlayerOrientation.cs" />
+    <Compile Include="Systems\Player\PlayerOrientationSystem.cs" />
+    <Compile Include="Systems\Pulse\PulseEvent.cs" />
+    <Compile Include="Systems\Pulse\PulsePushable.cs" />
+    <Compile Include="Systems\Pulse\PulseReceiver.cs" />
+    <Compile Include="Systems\Puzzles\AvoidCorners.cs" />
+    <Compile Include="Systems\Puzzles\CornerAvoidanceSystem.cs" />
+    <Compile Include="Systems\Puzzles\Door.cs" />
+    <Compile Include="Systems\Puzzles\DoorComponent.cs" />
+    <Compile Include="Systems\Puzzles\DoorSystem.cs" />
+    <Compile Include="Systems\Puzzles\Switch.cs" />
+    <Compile Include="Systems\Puzzles\SwitchComponent.cs" />
+    <Compile Include="Systems\Puzzles\SwitchSystem.cs" />
+    <Compile Include="Systems\Refill\EnergyRefillComponent.cs" />
+    <Compile Include="Systems\Refill\EnergyRefillOrb.cs" />
+    <Compile Include="Systems\Refill\EnergyRefillSystem.cs" />
+    <Compile Include="Systems\Generators\BoolMapConverter.cs" />
+    <Compile Include="Systems\Generators\RoomBuilder.cs" />
+    <Compile Include="Systems\Generators\RoomBuilderSystem.cs" />
+    <Compile Include="Systems\Sailboat\Sailboat.cs" />
+    <Compile Include="Systems\Sailboat\SailboatComponent.cs" />
+    <Compile Include="Systems\Sailboat\SailboatSystem.cs" />
+    <Compile Include="Systems\Setters\ActiveSetter.cs" />
+    <Compile Include="Systems\Setters\PositionSetter.cs" />
+    <Compile Include="Systems\Setters\SetterSystem.cs" />
+    <Compile Include="Systems\Sound\Sound.cs" />
+    <Compile Include="Systems\Sound\SoundEmitter.cs" />
+    <Compile Include="Systems\Sound\SoundSystem.cs" />
+    <Compile Include="Systems\Sound\StopMusic.cs" />
+    <Compile Include="Systems\Spatial.cs" />
+    <Compile Include="Systems\Spawner\EntitySpawner.cs" />
+    <Compile Include="Systems\Spawner\Spawned.cs" />
+    <Compile Include="Systems\Spawner\SpawnerSystem.cs" />
+    <Compile Include="Systems\Timer\TimerComponent.cs" />
+    <Compile Include="Systems\Timer\TimerSystem.cs" />
+    <Compile Include="Systems\Setters\VelocitySetter.cs" />
+    <Compile Include="Systems\Variables\CounterVariableComponent.cs" />
+    <Compile Include="Systems\Variables\VariableResetComponent.cs" />
+    <Compile Include="Systems\Variables\VariableSystem.cs" />
+    <Compile Include="Systems\Visual\Animation\AnimationComponent.cs" />
+    <Compile Include="Systems\Visual\Animation\AnimatedSprite.cs" />
+    <Compile Include="Systems\Visual\Animation\AnimationEndEvent.cs" />
+    <Compile Include="Systems\Visual\Animation\AnimationStartEvent.cs" />
+    <Compile Include="Systems\Visual\Animation\AnimationSystem.cs" />
+    <Compile Include="Systems\Visual\LevelRenderable.cs" />
+    <Compile Include="Systems\Visual\LevelRenderer.cs" />
+    <Compile Include="Systems\Visual\LevelSection.cs" />
+    <Compile Include="Systems\Visual\Particles\CloudParticle.cs" />
+    <Compile Include="Systems\Visual\Particles\CommonParticleSystem.cs" />
+    <Compile Include="Systems\Visual\Particles\ParticleComponent.cs" />
+    <Compile Include="Systems\Visual\Particles\ParticleSystem.cs" />
+    <Compile Include="Systems\Visual\Particles\SoundParticle.cs" />
+    <Compile Include="Systems\Visual\Renderable.cs" />
+    <Compile Include="Systems\Visual\Sprite.cs" />
+    <Compile Include="TestData\Box.cs" />
+    <Compile Include="Systems\Movement\PlayerMovementComponent.cs" />
+    <Compile Include="TestData\TestScene.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EntityComponentSystem\EntityComponentSystem.csproj">
+      <Project>{2667D3DE-1428-44C7-ADA4-6AAE4FF3AE08}</Project>
+      <Name>EntityComponentSystem</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GameBase\GameBase.csproj">
+      <Project>{BA823564-980A-4C23-BDF3-919ACFE74AD9}</Project>
+      <Name>GameBase</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
